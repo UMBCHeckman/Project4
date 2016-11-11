@@ -36,12 +36,18 @@ int main(int argc, char* argv[]) {
 
 // prints your name and section
 void printGreeting() {
-	std::cout << "Gene Burchette, Section 05" << std::endl;
+	std::cout << "Steven Heckman, Section 05" << std::endl;
 }
 
 // implement these two functions
 std::vector<PinHit> ReadPins(char* fileName, int* totalHits) {
-
+    std::ifstream pinFile;
+    std::string line;
+    pinFile.open(argv[1], std::ios::in);
+      while(std::getline(inputFile, line))
+    {
+        PinHit.insert(line);
+    }
 }
 
 template<class T, int m_size>
