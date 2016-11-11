@@ -1,0 +1,4 @@
+#ifndef MAXVALUEHEAP_H_
+#define MAXVALUEHEAP_H_
+#include "MaxValueHeap.h"
+template<class T, int m_size> class Heap{

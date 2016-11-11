@@ -1,0 +1,9 @@
+#ifndef MINVALUEHEAP_H_
+#define MINVALUEHEAP_H_
+class MinValueHeap: public Heap
+{
+
+};
+
+#include "MaxValueHeap.cpp"
+#endif /* MAXVALUEHEAP_H_ */
