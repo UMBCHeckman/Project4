@@ -35,10 +35,10 @@
 		<Unit filename="src/Driver.cpp" />
 		<Unit filename="src/Heap.cpp" />
 		<Unit filename="src/Heap.h" />
-		<Unit filename="src/MaxValueHeap.cpp" />
-		<Unit filename="src/MaxValueHeap.h" />
-		<Unit filename="src/MinValueHeap.cpp" />
-		<Unit filename="src/MinValueHeap.h" />
+		<Unit filename="src/MaxHeap.cpp" />
+		<Unit filename="src/MaxHeap.h" />
+		<Unit filename="src/MinHeap.cpp" />
+		<Unit filename="src/MinHeap.h" />
 		<Unit filename="src/PinHit.cpp" />
 		<Unit filename="src/PinHit.h" />
 		<Extensions>

@@ -15,15 +15,15 @@
 
 	template<class T, int m_size>
 	bool Heap<T, m_size>::Contains(const T& needle) const {
-        if Find(needle);
+        //if Find(needle);
 	}
 
 
 	template<class T, int m_size>
 	const T* Heap<T, m_size>::Find(const T& needle) const {
-        for(unsigned int i = 0; i < m_array.size(); i++){
-            if
-        }
+        //for(unsigned int i = 0; i < m_array.size(); i++){
+          //  if
+        //}
 	}
 
 	template<class T, int m_size>
