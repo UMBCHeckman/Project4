@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <time.h>
+#include <map>
 
 #include "PinHit.h"
 #include "Heap.h"
@@ -30,13 +31,13 @@ int main(int argc, char* argv[]) {
 	printGreeting();
 	int totalHits = 0;
 	std::vector<PinHit> myPins = ReadPins(argv[1], &totalHits);
-    //std::cout << totalHits << std::endl;
+    std::cout << totalHits << std::endl;
 	for(unsigned int i = 0; i < myPins.size(); i++){
         if(myPins[i].GetKey() != -1){
         std::cout << myPins[i].GetKey() << "|" << myPins[i].GetValue() << std::endl;
 	}
 	}
-    std::cout << myPins.size();
+    std::cout << totalHits;
 	return EXIT_SUCCESS;
 }
 
@@ -50,24 +51,19 @@ std::vector<PinHit> ReadPins(char* fileName, int* totalHits) {
     std::ifstream pinFile;
     std::string line;
     std::vector<PinHit> myPins;
-    unsigned int pin;
+    std::map<int, int> pinMap;
+    int pin;
     pinFile.open(fileName, std::ios::in);
     while(std::getline(pinFile, line)){
         bool rerun = false;
         pin = atoi(line.c_str());
-        while(pin >= myPins.size()){
-            PinHit *newPin= new PinHit();
+        if((pinMap.find(pin)) == pinMap.end()){
+            PinHit *newPin= new PinHit(pin, 1);
             myPins.push_back(*newPin);
+            pinMap.insert(std::pair<int,int> (pin, (myPins.size()-1)));
         }
-        //std::cout << myPins[pin].GetKey() << std::endl;
-        if(myPins[pin].GetKey() == -1){
-            PinHit *tempPin = &myPins[pin];
-            PinHit *newPin = new PinHit(pin, 1);
-            myPins[pin] = *newPin;
-            delete tempPin;
-        }
-        else if(myPins[pin].GetKey() == pin){
-            myPins[pin].IncrementHits();
+        else{
+            myPins[pinMap.find(pin)->second].IncrementHits();
         }
         *totalHits += 1;
     }
