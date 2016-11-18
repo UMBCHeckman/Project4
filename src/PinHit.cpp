@@ -42,14 +42,14 @@ void PinHit::IncrementHits() {
 //postcondition: negative if this is smaller, positive if
 //this is bigger, 0 if the same.
 int PinHit::CompareTo(const PinHit& other) const {
-    return(this.GetValue() - other.GetValue());
+    return(this->GetValue() - other.GetValue());
 }
 //overloaded == operator
 //returns true if pins are the same, false otherwise.
 //Precondition: another PinHit object
 //Postcondition: boolean.
 bool PinHit::operator==(const PinHit& other) {
-    if(this.GetKey() == other.GetKey()){
+    if(this->GetKey() == other.GetKey()){
         return true;
     }
     return false;

@@ -8,10 +8,10 @@ template<class T, int m_size> class Heap{
 		// required functions by UML
 		Heap();
 		Heap(const Heap<T, m_size>& origHeap);
-		bool Contains(const T& needle) const;	
+		bool Contains(const T& needle) const;
 		const T* Find(const T& needle) const;
-		T& Remove();	
-		void Insert(T& insertable);		
+		T& Remove();
+		void Insert(T& insertable);
 		void PercolateUp(int index);
 		void PercolateDown(int index);
 

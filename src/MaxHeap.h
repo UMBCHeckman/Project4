@@ -1,6 +1,8 @@
 #ifndef MAXHEAP_H_
 #define MAXHEAP_H_
-class MaxHeap: public Heap
+#include "Heap.h"
+template<class T, int m_size>
+class MaxHeap: public Heap<T, m_size>
 {
 
 };

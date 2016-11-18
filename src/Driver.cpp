@@ -29,7 +29,12 @@ int main(int argc, char* argv[]) {
 
 	printGreeting();
 	int totalHits = 0;
-	vector myPins<PinHit> = ReadPins(argv[1], &totalHits)
+	std::vector<PinHit> myPins = ReadPins(argv[1], &totalHits);
+    std::cout << totalHits << std::endl;
+	for(unsigned int i = 0; i < myPins.size(); i++){
+
+        std::cout << myPins[i].GetKey() << "|" << myPins[i].GetValue() << std::endl;
+	}
 
 	return EXIT_SUCCESS;
 }
@@ -43,24 +48,25 @@ void printGreeting() {
 std::vector<PinHit> ReadPins(char* fileName, int* totalHits) {
     std::ifstream pinFile;
     std::string line;
-    std::vector myPins<PinHit>;
+    std::vector<PinHit> myPins;
     int pin;
-    bool rerun = false;
     pinFile.open(fileName, std::ios::in);
-    while(std::getline(fileName, line)){
+    while(std::getline(pinFile, line)){
+        bool rerun = false;
         pin = atoi(line.c_str());
-        for(unsigned int i; i < myPins.size(); i++){
-            if (myPins[i].GetKey == pin){
+        for(unsigned int i = 0; i < myPins.size(); i++){
+            if (myPins[i].GetKey() == pin){
                 myPins[i].IncrementHits();
                 rerun = true;
             }
         }
         if (rerun == false){
-            PinHit *newPin= new PinHit(pin, 0);
-            myPins.pushback(*newPin);
+            PinHit *newPin= new PinHit(pin, 1);
+            myPins.push_back(*newPin);
         }
-        *totalHits++;
+        *totalHits += 1;
     }
+    return myPins;
 }
 
 template<class T, int m_size>
