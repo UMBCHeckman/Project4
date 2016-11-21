@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
 
 	printGreeting();
 	int totalHits = 0;
-	std::vector<PinHit> myPins = ReadPins(argv[1], &totalHits);
+	std::vector<PinHit> myPins = ReadPins(argv[1], &totalHits);//This is a vector of pinhit objects that calls the readpins function
     std::cout << totalHits << std::endl;
 	for(unsigned int i = 0; i < myPins.size(); i++){
         if(myPins[i].GetKey() != -1){
@@ -46,16 +46,15 @@ void printGreeting() {
 	std::cout << "Steven Heckman, Section 05" << std::endl;
 }
 
-// implement these two functions
+// ReadPins reads all the pins from a file and converts them into PinHit objects.
 std::vector<PinHit> ReadPins(char* fileName, int* totalHits) {
     std::ifstream pinFile;
     std::string line;
     std::vector<PinHit> myPins;
-    std::map<int, int> pinMap;
+    std::map<int, int> pinMap;//I'm using a map to keep track of pins. The first int is the pin, second is its index. Since this vector is going to be huge, searching in Ologn will be more efficient than other alternatives.
     int pin;
     pinFile.open(fileName, std::ios::in);
     while(std::getline(pinFile, line)){
-        bool rerun = false;
         pin = atoi(line.c_str());
         if((pinMap.find(pin)) == pinMap.end()){
             PinHit *newPin= new PinHit(pin, 1);
@@ -72,7 +71,14 @@ std::vector<PinHit> ReadPins(char* fileName, int* totalHits) {
 
 template<class T, int m_size>
 Heap<T, m_size>* BuildHeap(std::vector<T> PinHits, int slots) {
-
+    heapType = argv[2];
+    if(heapType == "--max"){
+        MaxHeap *myHeap = new MaxHeap<PinHit, >();
+    }
+    else if(heapType == "--min"){
+        MinHeap *myHeap = new MinHeap<PinHit, slots>();
+    }
+    for(unsigned int i = 0; i < )
 }
 
 // provided

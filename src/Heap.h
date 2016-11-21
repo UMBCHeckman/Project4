@@ -23,7 +23,7 @@ template<class T, int m_size> class Heap{
 		T* m_array;
 
 		// student-made member variables
-
+        int currentIndex;
 };
 
 #include "Heap.cpp"
